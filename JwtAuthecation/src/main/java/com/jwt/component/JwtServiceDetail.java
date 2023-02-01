@@ -14,15 +14,15 @@ public class JwtServiceDetail implements UserDetailsService {
 
 	@Autowired
 	private UsersRepo repo;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		Users user=repo.findByUsername(username);
-		if(user==null)
-		{
-		throw new UsernameNotFoundException("404 user not found");
-	}
+		Users user = repo.findByUsername(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("404 user not found");
+		}
 		return new PrincipalService(user);
 
-}
+	}
 }

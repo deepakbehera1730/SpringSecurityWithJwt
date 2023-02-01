@@ -13,28 +13,27 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.jwt.component.JwtServiceDetail;
 
-
 import io.jsonwebtoken.ExpiredJwtException;
 
-import org.springframework.web.filter.OncePerRequestFilter;
 @Component
-public class JwtFilter extends  OncePerRequestFilter{
+public class JwtFilter extends OncePerRequestFilter {
 	@Autowired
 	private JwtServiceDetail service;
-	
+
 	@Autowired
 	private JwtUtil util;
-	
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		final String requestTokenHeader=request.getHeader("AUTHORIZATION");
-		String username=null;
-		String jwtToken=null;
-		
+		final String requestTokenHeader = request.getHeader("AUTHORIZATION");
+		String username = null;
+		String jwtToken = null;
+
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer")) {
 			jwtToken = requestTokenHeader.substring(7);
 			try {
@@ -69,6 +68,5 @@ public class JwtFilter extends  OncePerRequestFilter{
 		}
 		filterChain.doFilter(request, response);
 	}
-
 
 }

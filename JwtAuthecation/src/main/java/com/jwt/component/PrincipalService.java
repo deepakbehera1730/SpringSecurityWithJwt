@@ -1,6 +1,7 @@
 package com.jwt.component;
 
 import java.util.Collection;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,7 +14,7 @@ public class PrincipalService implements UserDetails {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Users users;
-	
+
 	public PrincipalService(Users users) {
 		super();
 		this.users = users;
@@ -60,7 +61,5 @@ public class PrincipalService implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
-
 
 }
