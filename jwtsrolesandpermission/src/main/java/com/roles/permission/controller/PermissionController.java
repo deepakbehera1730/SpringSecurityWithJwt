@@ -3,6 +3,7 @@ package com.roles.permission.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.roles.permission.entity.Permission;
-import com.roles.permission.serviceimpl.PermissionImpl;
+import com.roles.permission.service.serviceimpl.PermissionImpl;
 
 @RestController
+@PreAuthorize("hasAuthority('ADMINONlY')")
 @RequestMapping("/permission")
 public class PermissionController {
 

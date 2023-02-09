@@ -23,7 +23,7 @@ public class Roles {
 
 	private int id;
 	private String rolesName;
-	@ManyToMany(mappedBy = "roles")
+	@ManyToMany(mappedBy = "roles",cascade = CascadeType.MERGE)
 	@JsonIgnore
 	private List<Users> user = new ArrayList<>();
 	

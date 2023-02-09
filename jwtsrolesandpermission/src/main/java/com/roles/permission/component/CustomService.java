@@ -7,12 +7,10 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.roles.permission.entity.Permission;
 import com.roles.permission.entity.Roles;
 import com.roles.permission.entity.Users;
-import com.roles.permission.service.UsersService;
 
 public class CustomService implements UserDetails {
 
@@ -43,7 +41,7 @@ public class CustomService implements UserDetails {
 
 			for (Permission permission : role.getPermission()) {
 				System.out.println("sds");
-				authorities.add(new SimpleGrantedAuthority(permission.getPermissionname()));
+				authorities.add(new SimpleGrantedAuthority(permission.getPermissionName()));
 				System.out.println(authorities);
 			}
 		}
@@ -54,7 +52,7 @@ public class CustomService implements UserDetails {
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return user.getPaswword();
+		return user.getPassword();
 	}
 
 	@Override

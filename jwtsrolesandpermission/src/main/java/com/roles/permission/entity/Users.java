@@ -22,20 +22,20 @@ public class Users implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
- 
+
 	private int id;
 	private String username;
 
-	private String paswword;
-	@ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+	private String password;
+	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
 	private List<Roles> roles = new ArrayList<>();
 
-	public Users(int id, String username, String paswword) {
+	public Users(int id, String username, String password) {
 		super();
 		this.id = id;
 		this.username = username;
-		this.paswword = paswword;
+		this.password = password;
 	}
 
 	public Users() {
@@ -59,12 +59,12 @@ public class Users implements Serializable {
 		this.username = username;
 	}
 
-	public String getPaswword() {
-		return paswword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPaswword(String paswword) {
-		this.paswword = paswword;
+	public void setPassword(String paswword) {
+		this.password = paswword;
 	}
 
 	public List<Roles> getRoles() {

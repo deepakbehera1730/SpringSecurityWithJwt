@@ -9,7 +9,9 @@ public interface UsersService {
 
 	Users findUserById(int id);
 
-	Users addUser(Users user);
+//	Users addUser(Users user);
+
+
 
 	Users updateUser(int id, Users user);
 

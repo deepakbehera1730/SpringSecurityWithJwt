@@ -13,7 +13,7 @@ public class Permission {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String permissionname;
+	private String permissionName;
 	
 	@ManyToMany(mappedBy = "permission")
 	private List<Roles> roles;
@@ -22,7 +22,7 @@ public class Permission {
 	public Permission(int id, String permissionname) {
 		super();
 		this.id = id;
-		this.permissionname = permissionname;
+		this.permissionName = permissionname;
 	}
 
 	public Permission() {
@@ -38,12 +38,12 @@ public class Permission {
 		this.id = id;
 	}
 
-	public String getPermissionname() {
-		return permissionname;
+	public String getPermissionName() {
+		return permissionName;
 	}
 
 	public void setPermissionname(String permissionname) {
-		this.permissionname = permissionname;
+		this.permissionName = permissionname;
 	}
 
 }
