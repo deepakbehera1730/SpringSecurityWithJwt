@@ -11,7 +11,7 @@ public interface UsersService {
 
 	public Users findById(int id);
 
-	public Users putData(Users users, int id);
+	public Users putData(Users users, int id) throws Exception;
 
 	public void deleteById(int id);
 }

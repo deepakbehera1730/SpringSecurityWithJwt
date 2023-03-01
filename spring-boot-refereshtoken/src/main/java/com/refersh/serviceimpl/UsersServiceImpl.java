@@ -52,8 +52,8 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 
-	public Users putData(Users users, int id) {
-		Users user1 = repo.findById(id).orElseThrow();
+	public Users putData(Users users, int id) throws Exception {
+		Users user1 = repo.findById(id).orElseThrow(()->new Exception("User not Found"));
 		user1.setUsername(users.getUsername());
 		String sc = users.getPassword();
 		String passwordencoder = passwordEncoder.encode(sc);
